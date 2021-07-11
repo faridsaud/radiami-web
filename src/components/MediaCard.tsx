@@ -11,19 +11,15 @@ export enum TitlePosition {
 }
 
 export type MediaCardProps = {
-  primaryTitle: string;
-  primaryDescription: string;
-  secondaryTitle: string;
-  secondaryDescription: string;
   image: ImageType;
   titlePosition: TitlePosition;
+  defaultContent: React.ReactNode;
+  clickedContent: React.ReactNode;
 };
 
 export const MediaCard = ({
-  primaryTitle,
-  primaryDescription,
-  secondaryTitle,
-  secondaryDescription,
+  defaultContent,
+  clickedContent,
   image,
   titlePosition = TitlePosition.RIGHT,
 }: MediaCardProps) => {
@@ -51,16 +47,8 @@ export const MediaCard = ({
   return (
     <Container titlePosition={titlePosition} onClick={handleContentClick}>
       <Image src={image?.src} alt={image?.alt} />
-      <PrimaryContent>
-        <Title vertical rotate={titlePosition === TitlePosition.LEFT}>
-          {primaryTitle}
-        </Title>
-      </PrimaryContent>
-      <SecondaryContent style={styles}>
-        {isMobile && <Description>{primaryDescription}</Description>}
-        <Title>{secondaryTitle}</Title>
-        <Description>{secondaryDescription}</Description>
-      </SecondaryContent>
+      <PrimaryContent>{defaultContent}</PrimaryContent>
+      <SecondaryContent style={styles}>{clickedContent}</SecondaryContent>
     </Container>
   );
 };
@@ -70,12 +58,9 @@ const Container = styled.div<{ titlePosition: TitlePosition }>`
   display: flex;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   flex-direction: ${(props) =>
     props.titlePosition === TitlePosition.RIGHT ? "row" : "row-reverse"};
-  // @media (min-width: 768px) {
-  //   font-size: ${toRem(80)}rem;
-  //   padding: 0 55px;
-  // }
 `;
 
 const Image = styled.img`
@@ -95,7 +80,6 @@ const Content = styled(animated.div)`
   justify-content: center;
   align-items: center;
   position: relative;
-  gap: 16px;
   @media (min-width: 768px) {
     width: 60%;
     padding: 43px;
@@ -114,32 +98,6 @@ const SecondaryContent = styled(Content)`
   color: #ffd500;
   @media (min-width: 768px) {
     width: 60%;
-  }
-`;
-
-const Title = styled.p<{ rotate?: boolean; vertical?: boolean }>`
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: ${toRem(17)}rem;
-  text-orientation: ${(props) => (props.vertical ? "mixed" : "initial")};
-  writing-mode: ${(props) => (props.vertical ? "vertical-rl" : "initial")};
-  transform: ${(props) => (props.rotate ? "rotate(180deg)" : "none")};
-
-  @media (min-width: 768px) {
-    transform: none;
-    text-orientation: initial;
-    writing-mode: initial;
-    font-size: ${toRem(34)}rem;
-  }
-`;
-
-const Description = styled.p`
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: ${toRem(17)}rem;
-
-  @media (min-width: 768px) {
-    font-size: ${toRem(20)}rem;
   }
 `;
 
