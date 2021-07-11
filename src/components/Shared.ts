@@ -8,3 +8,16 @@ export const PaddedContent = styled.div`
     margin: auto;
   }
 `;
+
+export const MobileOnly = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const DesktopOnly = styled.div`
+  display: none;
+  @media (min-width: 768px) {
+    display: initial;
+  }
+`;

@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { PaddedContent } from "./Shared";
 import { TitleCard } from "./TitleCard";
-import { MediaCard, MediaCardProps, TitlePosition } from "./MediaCard";
+import { ShowCardProps, ShowCard } from "./ShowCard";
 import ShowDemoImage from "../assets/show_demo.png";
+import { TitlePosition } from "./MediaCard";
 
-const SHOWS: MediaCardProps[] = [
+const SHOWS: ShowCardProps[] = [
   {
     primaryTitle: "Maxima Energia",
     primaryDescription: "Eadmin | Enero 23,2019",
+    secondaryTitle: "Programa Musical",
+    secondaryDescriptionLine1: "Lunes a Viernes",
+    secondaryDescriptionLine2: "10h00 - 12h00",
     image: {
       src: ShowDemoImage,
       alt: "Maxima Energia",
@@ -16,6 +20,10 @@ const SHOWS: MediaCardProps[] = [
   },
   {
     primaryTitle: "Maxima Energia",
+    primaryDescription: "Eadmin | Enero 23,2019",
+    secondaryTitle: "Programa Musical",
+    secondaryDescriptionLine1: "Lunes a Viernes",
+    secondaryDescriptionLine2: "10h00 - 12h00",
     image: {
       src: ShowDemoImage,
       alt: "Maxima Energia",
@@ -29,7 +37,8 @@ export const Shows = () => {
       <TitleCard>Programas</TitleCard>
       <ShowsContainer>
         {SHOWS.map((show, index) => (
-          <MediaCard
+          <ShowCard
+            key={index + show?.primaryTitle}
             {...show}
             titlePosition={
               index % 2 === 0 ? TitlePosition.RIGHT : TitlePosition.LEFT
