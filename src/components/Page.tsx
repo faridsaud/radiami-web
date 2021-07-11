@@ -18,7 +18,7 @@ const Page = ({ children }: PageProps) => {
 const Container = styled.main`
   min-width: 100vw;
   min-height: 100vh;
-  background: #e1e1e1;
+  background: #e3e3e1;
 `;
 
 export default Page;
