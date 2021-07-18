@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { PaddedContent } from "./Shared";
-import { TitleCard } from "./TitleCard";
-import { ShowCardProps, ShowCard } from "./ShowCard";
+import { BackgroundPosition, TitleCard } from "./TitleCard";
+import { ShowCard, ShowCardProps } from "./ShowCard";
 import ShowDemoImage from "../assets/show_demo.png";
 import { TitlePosition } from "./MediaCard";
 
