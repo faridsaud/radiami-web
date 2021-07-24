@@ -83,7 +83,7 @@ const Container = styled(animated.div)`
   bottom: 0;
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: 101;
   padding: 130px 30px;
   gap: 40px;
   overflow-y: auto;

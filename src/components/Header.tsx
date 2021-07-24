@@ -81,16 +81,10 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 0;
   @media (min-width: 768px) {
     padding: 25px 73px;
-  }
-`;
-const Placeholder = styled.div`
-  height: 85px;
-  @media (min-width: 768px) {
-    height: 85px;
   }
 `;
 

@@ -53,6 +53,10 @@ const Container = styled.footer`
   flex-direction: column;
   max-width: 1440px;
   margin: auto;
+  z-index: 4;
+  & > * {
+    z-index: 4;
+  }
 `;
 
 const Content = styled.div`
