@@ -9,6 +9,7 @@ type PageProps = {
 };
 
 const Page = ({ children }: PageProps) => {
+  useFacebook();
   return (
     <Container>
       <Header />
