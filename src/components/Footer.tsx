@@ -36,7 +36,11 @@ const Footer = (props: FooterProps) => {
         </Section>
         <Section>
           <SectionTitle>Escribenos</SectionTitle>
-          <SectionDescription>radiolavozdesuamigo@yahoo.es</SectionDescription>
+          <SectionDescription>
+            <a href="mailto:radiolavozdesuamigo@yahoo.es">
+              radiolavozdesuamigo@yahoo.es
+            </a>
+          </SectionDescription>
         </Section>
       </Content>
     </Container>
@@ -52,11 +56,14 @@ const Container = styled.footer`
 `;
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-row-gap: 25px;
   padding: 40px 25px;
   @media (min-width: 768px) {
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 15px;
+    grid-row-gap: 25px;
     padding: 28px 74px;
   }
 `;
@@ -67,8 +74,7 @@ const Section = styled.div`
   flex-direction: column;
   gap: 9px;
   @media (min-width: 768px) {
-    gap: 17px;
-    width: 50%;
+    gap: 9px;
   }
 `;
 
@@ -84,7 +90,12 @@ const SectionTitle = styled.p`
 const SectionDescription = styled.p`
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  font-size: ${toRem(17)}rem;
+  font-size: ${toRem(16)}rem;
+  line-height: ${toRem(32)}rem;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   @media (min-width: 768px) {
     font-size: ${toRem(20)}rem;
   }

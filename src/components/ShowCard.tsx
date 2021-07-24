@@ -36,7 +36,7 @@ export const ShowCard = ({
           </DesktopOnly>
         </TextContainer>
       }
-      clickedContent={
+      focusedContent={
         <TextContainer>
           <MobileOnly>
             <SecondaryDescription>{primaryDescription}</SecondaryDescription>

@@ -14,12 +14,12 @@ export type MediaCardProps = {
   image: ImageType;
   titlePosition: TitlePosition;
   defaultContent: React.ReactNode;
-  clickedContent: React.ReactNode;
+  focusedContent: React.ReactNode;
 };
 
 export const MediaCard = ({
   defaultContent,
-  clickedContent,
+  focusedContent,
   image,
   titlePosition = TitlePosition.RIGHT,
 }: MediaCardProps) => {
@@ -48,7 +48,7 @@ export const MediaCard = ({
     <Container titlePosition={titlePosition} onClick={handleContentClick}>
       <Image src={image?.src} alt={image?.alt} />
       <PrimaryContent>{defaultContent}</PrimaryContent>
-      <SecondaryContent style={styles}>{clickedContent}</SecondaryContent>
+      <SecondaryContent style={styles}>{focusedContent}</SecondaryContent>
     </Container>
   );
 };
