@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { PaddedContent } from "./Shared";
 import { BackgroundPosition, TitleCard } from "./TitleCard";
-import { ShowCard, ShowCardProps } from "./ShowCard";
+import { AnimatedCard, AnimatedCardProps } from "./AnimatedCard";
 import ShowDemoImage from "../assets/show_demo.png";
 import { TitlePosition } from "./MediaCard";
 
-const SHOWS: ShowCardProps[] = [
+const SHOWS: AnimatedCardProps[] = [
   {
     primaryTitle: "Maxima Energia",
     primaryDescription: "Eadmin | Enero 23,2019",
@@ -41,7 +41,7 @@ export const Shows = () => {
       </TitleCard>
       <ShowsContainer>
         {SHOWS.map((show, index) => (
-          <ShowCard
+          <AnimatedCard
             key={index + show?.primaryTitle}
             {...show}
             titlePosition={
