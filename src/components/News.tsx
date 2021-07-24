@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+
+import { FacebookProvider, Page } from "react-facebook";
+import { Timeline } from "react-twitter-widgets";
+
 import { PaddedContent } from "./Shared";
 import { BackgroundPosition, TitleCard } from "./TitleCard";
-import { ShowCard, ShowCardProps } from "./ShowCard";
+import { ShowCardProps } from "./ShowCard";
 import ShowDemoImage from "../assets/show_demo.png";
 import { TitlePosition } from "./MediaCard";
 
@@ -31,26 +35,41 @@ const SHOWS: ShowCardProps[] = [
   },
 ];
 
-export const Shows = () => {
+export const News = () => {
   return (
     <PaddedContent>
       <TitleCard
         background={{ position: BackgroundPosition.TOP, color: "#422774" }}
+        title={{ position: TitlePosition.RIGHT }}
       >
-        Programas
+        Noticias
       </TitleCard>
-      <ShowsContainer>
-        {SHOWS.map((show, index) => (
-          <ShowCard
-            key={index + show?.primaryTitle}
-            {...show}
-            titlePosition={
-              index % 2 === 0 ? TitlePosition.RIGHT : TitlePosition.LEFT
-            }
+      <FeedCards>
+        <FeedCard>
+          <FacebookProvider appId="406278154073477">
+            <Page
+              href="https://www.facebook.com/lavozdesuamigo"
+              tabs="timeline"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </FacebookProvider>
+        </FeedCard>
+        <FeedCard>
+          <Timeline
+            dataSource={{
+              sourceType: "profile",
+              screenName: "lavozdesuamigo",
+            }}
+            options={{
+              width: "100%",
+              autoHeight: true,
+            }}
           />
-        ))}
-      </ShowsContainer>
-      <Container />
+        </FeedCard>
+      </FeedCards>
     </PaddedContent>
   );
 };
@@ -64,9 +83,18 @@ const ShowsContainer = styled.div`
     padding-top: 50px;
   }
 `;
-const Container = styled.section`
-  width: 100%;
-  height: 100vh;
+
+const FeedCards = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
-export default Shows;
+const FeedCard = styled.div`
+  width: 30%;
+  height: 40vh;
+`;
+
+export default News;

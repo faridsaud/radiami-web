@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Shows } from "../components/Shows";
 import ReactPlayer from "react-player";
 import FacebookVideos from "../components/FacebookVideos";
+import News from "../components/News";
 
 const IndexPage = () => {
   return (
@@ -12,15 +13,9 @@ const IndexPage = () => {
       <Jumbotron />
       <ReactPlayer url="https://www.facebook.com/lavozdesuamigo/videos/971531730306684/" />
       <Shows />
-
-      <Container></Container>
+      <News />
     </Page>
   );
 };
-
-const Container = styled.section`
-  width: 100%;
-  height: 100vh;
-`;
 
 export default IndexPage;

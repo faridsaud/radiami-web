@@ -7,19 +7,31 @@ export enum BackgroundPosition {
   BOTTOM = "BOTTOM",
 }
 
+export enum TitlePosition {
+  LEFT = "LEFT",
+  RIGHT = "RIGHT",
+}
+
 type TitleCardProps = {
   children: React.ReactNode;
   background?: {
     position: BackgroundPosition;
     color: string;
   };
+  title?: {
+    position: TitlePosition;
+  };
 };
 
-export const TitleCard = ({ children, background }: TitleCardProps) => {
+export const TitleCard = ({ children, background, title }: TitleCardProps) => {
   return (
     <Container
       paddingTop={background?.position === BackgroundPosition.TOP}
       paddingBottom={background?.position === BackgroundPosition.BOTTOM}
+      style={{
+        justifyContent:
+          title?.position === TitlePosition.RIGHT ? "flex-end" : "flex-start",
+      }}
     >
       {background && <Background backgroundColor={background?.color} />}
       <Title>{children}</Title>
@@ -47,6 +59,7 @@ const Container = styled.div<{ paddingTop?: boolean; paddingBottom?: boolean }>`
   width: 100%;
   position: relative;
   background: transparent;
+  display: flex;
   padding-top: ${(props) => (props?.paddingTop ? "46px" : "0")};
   padding-bottom: ${(props) => (props?.paddingBottom ? "46px" : "0")};
 `;
