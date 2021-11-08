@@ -5,8 +5,8 @@ import ConsoleBackground from "../assets/console.jpg";
 export const TitleCard = () => {
   return (
     <Container>
-      <BackgroundImageGradient />
       <BackgroundImage />
+      <BackgroundImageGradient />
     </Container>
   );
 };
@@ -30,12 +30,10 @@ const BackgroundImageGradient = styled.div`
     rgba(227, 227, 225, 0)
   );
   background-size: cover;
-  z-index: 2;
 `;
 
 const BackgroundImage = styled.div`
   position: absolute;
-  z-index: 1;
   width: 100%;
   height: 100%;
   background-image: url(${ConsoleBackground});

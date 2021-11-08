@@ -29,6 +29,17 @@ const SHOWS: AnimatedCardProps[] = [
       alt: "Maxima Energia",
     },
   },
+  {
+    primaryTitle: "Maxima Energia",
+    primaryDescription: "Eadmin | Enero 23,2019",
+    secondaryTitle: "Programa Musical",
+    secondaryDescriptionLine1: "Lunes a Viernes",
+    secondaryDescriptionLine2: "10h00 - 12h00",
+    image: {
+      src: ShowDemoImage,
+      alt: "Maxima Energia",
+    },
+  },
 ];
 
 export const Shows = () => {
@@ -50,7 +61,6 @@ export const Shows = () => {
           />
         ))}
       </ShowsContainer>
-      <Container />
     </PaddedContent>
   );
 };
@@ -61,12 +71,8 @@ const ShowsContainer = styled.div`
   gap: 50px;
   padding-top: 70px;
   @media (min-width: 768px) {
-    padding-top: 50px;
+    padding-top: 70px;
   }
-`;
-const Container = styled.section`
-  width: 100%;
-  height: 100vh;
 `;
 
 export default Shows;
