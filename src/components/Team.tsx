@@ -89,10 +89,10 @@ export const Team = () => {
         Nuestro Equipo
       </TitleCard>
       <TeamMembers>
-        {TEAM_MEMBERS.map((show, index) => (
+        {TEAM_MEMBERS.map((teamMember, index) => (
           <StyledAnimatedCard
-            key={index + show?.primaryTitle}
-            {...show}
+            key={index + teamMember?.primaryTitle}
+            {...teamMember}
             titlePosition={
               index % 2 === 0 ? TitlePosition.RIGHT : TitlePosition.LEFT
             }
