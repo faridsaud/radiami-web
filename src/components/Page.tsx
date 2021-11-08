@@ -29,7 +29,13 @@ const Content = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  z-index: 3;
+  gap: 80px;
+  @media (min-width: 768px) {
+    gap: 120px;
+  }
+  & * {
+    z-index: 1;
+  }
 `;
 
 export default Page;

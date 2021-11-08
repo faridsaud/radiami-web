@@ -1,39 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { FacebookProvider, Page } from "react-facebook";
 import { Timeline } from "react-twitter-widgets";
+import InstagramEmbed from "react-instagram-embed";
 
 import { PaddedContent } from "./Shared";
 import { BackgroundPosition, TitleCard } from "./TitleCard";
-import { ShowCardProps } from "./ShowCard";
-import ShowDemoImage from "../assets/show_demo.png";
 import { TitlePosition } from "./MediaCard";
-
-const SHOWS: ShowCardProps[] = [
-  {
-    primaryTitle: "Maxima Energia",
-    primaryDescription: "Eadmin | Enero 23,2019",
-    secondaryTitle: "Programa Musical",
-    secondaryDescriptionLine1: "Lunes a Viernes",
-    secondaryDescriptionLine2: "10h00 - 12h00",
-    image: {
-      src: ShowDemoImage,
-      alt: "Maxima Energia",
-    },
-  },
-  {
-    primaryTitle: "Maxima Energia",
-    primaryDescription: "Eadmin | Enero 23,2019",
-    secondaryTitle: "Programa Musical",
-    secondaryDescriptionLine1: "Lunes a Viernes",
-    secondaryDescriptionLine2: "10h00 - 12h00",
-    image: {
-      src: ShowDemoImage,
-      alt: "Maxima Energia",
-    },
-  },
-];
 
 export const News = () => {
   return (
@@ -46,16 +19,16 @@ export const News = () => {
       </TitleCard>
       <FeedCards>
         <FeedCard>
-          <FacebookProvider appId="406278154073477">
-            <Page
-              href="https://www.facebook.com/lavozdesuamigo"
-              tabs="timeline"
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          </FacebookProvider>
+          <iframe
+            src={`https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flavozdesuamigo%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=${process.env.GATSBY_FACEBOOK_APP_ID}`}
+            width="100%"
+            height="600"
+            style={{ border: "none", overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          />
         </FeedCard>
         <FeedCard>
           <Timeline
@@ -65,6 +38,7 @@ export const News = () => {
             }}
             options={{
               width: "100%",
+              height: "600px",
               autoHeight: true,
             }}
           />
@@ -87,14 +61,19 @@ const ShowsContainer = styled.div`
 const FeedCards = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 70px;
   @media (min-width: 768px) {
-    flex-direction: row;
+    padding-top: 70px;
   }
 `;
 
 const FeedCard = styled.div`
-  width: 30%;
-  height: 40vh;
+  width: 400px;
+  @media (min-width: 768px) {
+    width: 500px;
+  }
 `;
+
+const FacebookFeedCard = styled(FeedCard)``;
 
 export default News;
