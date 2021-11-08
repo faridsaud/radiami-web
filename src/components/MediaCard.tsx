@@ -15,6 +15,7 @@ export type MediaCardProps = {
   titlePosition: TitlePosition;
   defaultContent: React.ReactNode;
   focusedContent: React.ReactNode;
+  className?: string;
 };
 
 export const MediaCard = ({
@@ -22,6 +23,7 @@ export const MediaCard = ({
   focusedContent,
   image,
   titlePosition = TitlePosition.RIGHT,
+  className,
 }: MediaCardProps) => {
   const [isOpen, setOpen] = useState(false);
   const animation = useMemo(() => {
@@ -45,7 +47,11 @@ export const MediaCard = ({
   }, [setOpen]);
 
   return (
-    <Container titlePosition={titlePosition} onClick={handleContentClick}>
+    <Container
+      className={className}
+      titlePosition={titlePosition}
+      onClick={handleContentClick}
+    >
       <Image src={image?.src} alt={image?.alt} />
       <PrimaryContent>{defaultContent}</PrimaryContent>
       <SecondaryContent style={styles}>{focusedContent}</SecondaryContent>
@@ -96,6 +102,8 @@ const SecondaryContent = styled(Content)`
   width: 100%;
   background-color: #422774;
   color: #ffd500;
+  padding-left: ${toRem(32)}rem;
+  padding-right: ${toRem(32)}rem;
   @media (min-width: 768px) {
     width: 60%;
   }

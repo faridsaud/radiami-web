@@ -6,14 +6,15 @@ import Background from "./Background";
 
 type PageProps = {
   children: React.ReactNode;
+  padded?: boolean;
 };
 
-const Page = ({ children }: PageProps) => {
+const Page = ({ children, padded }: PageProps) => {
   return (
     <Container>
       <Header />
       <Background />
-      <Content>{children}</Content>
+      <Content padded={padded}>{children}</Content>
       <Footer />
     </Container>
   );
@@ -25,12 +26,14 @@ const Container = styled.main`
   background-color: #e3e3e1;
 `;
 
-const Content = styled.div`
+const Content = styled.div<{ padded?: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 80px;
+  padding-top: ${(props) => (props.padded ? 75 : 0)}px;
   @media (min-width: 768px) {
+    padding-top: ${(props) => (props.padded ? 85 : 0)}px;
     gap: 120px;
   }
   & * {

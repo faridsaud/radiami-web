@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { Timeline } from "react-twitter-widgets";
-import InstagramEmbed from "react-instagram-embed";
 
 import { PaddedContent } from "./Shared";
 import { BackgroundPosition, TitleCard } from "./TitleCard";
@@ -48,22 +47,17 @@ export const News = () => {
   );
 };
 
-const ShowsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  padding-top: 70px;
-  @media (min-width: 768px) {
-    padding-top: 50px;
-  }
-`;
-
 const FeedCards = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 70px;
+  padding-bottom: 70px;
   @media (min-width: 768px) {
+    flex-direction: row;
     padding-top: 70px;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
   }
 `;
 
@@ -73,7 +67,5 @@ const FeedCard = styled.div`
     width: 500px;
   }
 `;
-
-const FacebookFeedCard = styled(FeedCard)``;
 
 export default News;

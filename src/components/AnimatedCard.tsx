@@ -7,12 +7,13 @@ import { MobileOnly, DesktopOnly } from "./Shared";
 
 export type AnimatedCardProps = {
   primaryTitle: string;
-  primaryDescription: string;
-  secondaryTitle: string;
-  secondaryDescriptionLine1: string;
-  secondaryDescriptionLine2: string;
+  primaryDescription?: string;
+  secondaryTitle?: string;
+  secondaryDescriptionLine1?: string;
+  secondaryDescriptionLine2?: string;
   image: ImageType;
   titlePosition?: TitlePosition;
+  className?: string;
 };
 
 export const AnimatedCard = ({
@@ -23,9 +24,11 @@ export const AnimatedCard = ({
   secondaryDescriptionLine2,
   image,
   titlePosition = TitlePosition.RIGHT,
+  className,
 }: AnimatedCardProps) => {
   return (
     <MediaCard
+      className={className}
       defaultContent={
         <TextContainer>
           <Title vertical rotate={titlePosition === TitlePosition.LEFT}>
