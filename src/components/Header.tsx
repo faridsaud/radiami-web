@@ -30,7 +30,7 @@ const MENU_ITEMS: MenuItem[] = [
       },
       {
         label: "Rendicion de Cuentas",
-        link: "/accountability",
+        link: "/finance",
       },
     ],
   },
