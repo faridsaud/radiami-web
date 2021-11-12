@@ -18,7 +18,7 @@ const MENU_ITEMS: MenuItem[] = [
     subMenuItems: [
       {
         label: "Quienes Somos",
-        link: "/us",
+        link: "/about",
       },
       {
         label: "Equipo",

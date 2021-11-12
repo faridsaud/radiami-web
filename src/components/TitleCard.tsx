@@ -18,17 +18,19 @@ type TitleCardProps = {
     position: BackgroundPosition;
     color: string;
   };
+  style?: any,
   title?: {
     position: TitlePosition;
   };
 };
 
-export const TitleCard = ({ children, background, title }: TitleCardProps) => {
+export const TitleCard = ({ style = {}, children, background, title }: TitleCardProps) => {
   return (
     <Container
       paddingTop={background?.position === BackgroundPosition.TOP}
       paddingBottom={background?.position === BackgroundPosition.BOTTOM}
       style={{
+        ...style,
         justifyContent:
           title?.position === TitlePosition.RIGHT ? "flex-end" : "flex-start",
       }}
