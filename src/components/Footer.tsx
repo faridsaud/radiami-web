@@ -10,7 +10,7 @@ type FooterProps = {};
 
 const Footer = (props: FooterProps) => {
   return (
-    <Container>
+    <Container id={"contact-us"}>
       <TitleCard
         background={{ position: BackgroundPosition.TOP, color: "#FFD500" }}
       >
@@ -30,8 +30,8 @@ const Footer = (props: FooterProps) => {
         <Section>
           <SectionTitle>Llamanos</SectionTitle>
           <SectionDescription>
-            Cabina (06) 2720-499 / (06) 2721-834 <br />
-            Secretaria (06) 2711-901 / (06) 2714-645
+            Cabina (06) 2720-499 <br />
+            Secretaria (06) 2711-901
           </SectionDescription>
         </Section>
         <Section>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FacebookProvider, Page } from "react-facebook";
 
 import { Timeline } from "react-twitter-widgets";
 
@@ -18,16 +19,18 @@ export const News = () => {
       </TitleCard>
       <FeedCards>
         <FeedCard>
-          <iframe
-            src={`https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flavozdesuamigo%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=${process.env.GATSBY_FACEBOOK_APP_ID}`}
-            width="100%"
-            height="600"
-            style={{ border: "none", overflow: "hidden" }}
-            scrolling="no"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          />
+          <FeedCard>
+            <iframe
+              src={`https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flavozdesuamigo%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=${process.env.GATSBY_FACEBOOK_APP_ID}`}
+              width="100%"
+              height="600"
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            />
+          </FeedCard>
         </FeedCard>
         <FeedCard>
           <Timeline

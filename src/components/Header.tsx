@@ -35,10 +35,6 @@ const MENU_ITEMS: MenuItem[] = [
     ],
   },
   {
-    label: "Noticias",
-    link: "/news",
-  },
-  {
     label: "Contactanos",
     link: "/contact-us",
   },
@@ -55,13 +51,13 @@ const Header = (props: HeaderProps) => {
           <Icon src={BurgerIcon} alt={"Burger"} />
         </Button>
         <LinksContainer>
-          <Link href={"/"} target={"_blank"}>
+          <Link href={"https://www.facebook.com/lavozdesuamigo/"} target={"_blank"}>
             <Icon src={FacebookIcon} alt={"Facebook"} />
           </Link>
-          <Link href={"/"} target={"_blank"}>
+          <Link href={"https://www.instagram.com/lavozdesuamigo/"} target={"_blank"}>
             <Icon src={InstagramIcon} alt={"Instagram"} />
           </Link>
-          <Link href={"/"} target={"_blank"}>
+          <Link href={"https://twitter.com/LaVozdesuAmigo"} target={"_blank"}>
             <Icon src={TwitterIcon} alt={"Twitter"} />
           </Link>
         </LinksContainer>
